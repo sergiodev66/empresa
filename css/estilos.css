@@ -1,0 +1,449 @@
+:root{
+    --oscuro:#07070a;
+    --azulOscuro:#0a1128;
+    --azulClaro:#006fe6;
+    --blanco:#fefcfb;
+    --titulos:'Baloo 2', cursive;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+*,*::before, *::after{
+    box-sizing: inherit;
+}
+
+/*estilos globales*/
+h1, h2, h3{
+    font-family: var(--titulos);
+}
+.ocultar{
+    display: none;
+}
+.contenedor{
+    margin: 0 auto;
+    max-width: 120rem;
+    width: 95%;
+}
+@keyframes desplazamiento{
+    0%{transform: translateX(-100px);}
+    100%{transform: translateX(0);}
+}
+
+/*encabezado*/
+.encabezado{
+    background-image: url(../img/fondo.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 70rem;
+    position: relative;
+    z-index: 1;
+}
+.encabezado::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+
+}
+
+.logo h2{
+    font-size: 3rem;
+}
+.logo h2 span{
+    color: var(--azulClaro);
+}
+
+.contenido-navegacion{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--blanco);
+    box-shadow: 10px 10px 16px -6px rgba(0,0,0,0.45);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+.navegacion{
+    background-color: var(--blanco);
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    animation: desplazamiento .7s ease-in-out;
+}
+.navegacion a{
+    display: block;
+    font-size: 2rem;
+    padding: 1.1rem;
+    color: var(--oscuro);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+.navegacion a:hover{
+    background-color: var(--azulClaro);
+    color: var(--blanco);
+}
+.hamburguesa span{
+    width: 5rem;
+    height: 1rem;
+    border: 3px solid white;
+    background-color: var(--oscuro);
+    display: block;
+    cursor: pointer;
+}
+.btn{
+    padding: 1rem 3rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    border:none;
+    color: #fefcfb;
+    background-color: var(--azulClaro);
+    cursor: pointer;
+}
+
+@media (min-width:768px) {
+    .hamburguesa{
+        display: none;
+    }
+    .ocultar{
+        display: inline;
+    }
+    .navegacion a{
+        display: inline;
+    }
+    .navegacion{
+        position: relative;
+        top: unset;
+        width: auto;
+        background-color: unset;
+        animation: unset;
+    }
+    .contenido-encabezado{
+        display: flex;
+        align-items: center;
+        height: 85%;
+        justify-content: space-between;
+    }
+    .contenido-encabezado, .formulario-encabezado{
+        flex: 0 0 calc(50%-1rem);
+    }
+    .texto-encabezado h1{
+        font-size: 8rem;
+        text-align: left;
+        padding-top: 0;
+    }
+    .formulario-encabezado h2{
+        font-size: 4rem;
+    }
+    .encabezado{
+        background-attachment: fixed;
+    }
+}
+
+
+
+
+/*contenido encabezado*/
+.texto-encabezado h1{
+    font-size: 3rem;
+    color: var(--blanco);
+    padding-top: 8rem;
+    text-align: center;
+}
+.formulario-encabezado{
+    background-color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    border-radius: .5rem;
+
+}
+.formulario-encabezado h2{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 0;
+}
+.input-encabezado{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+.input-encabezado input{
+    width: 100%;
+    padding: 0 1.5rem;
+    height: 4.8rem;
+    border: 1px solid #f1f1f1;
+    border-radius: .5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    outline: none;
+
+}
+
+
+/*ventajas estilos*/
+@media (min-width:768px){
+    .contenido-ventajas{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+    }
+    .ventaja p{
+        text-align: left;
+    }
+}
+
+
+.ventajas{
+    background-color: var(--azulOscuro);
+    padding: 5rem;
+}
+.ventaja{
+    color: #fff;
+    text-align: center;
+}
+.ventaja i{
+    font-size: 4rem;
+}
+.ventaja h3{
+    font-size: 2.5rem;
+}
+.ventaja p{
+    font-size: 2rem;
+}
+
+/*estilo nosotros*/
+.nosotros h2{
+    text-align: center;
+    font-size: 4rem;
+    color: var(--azulClaro);
+}
+.contenido-nosotros{
+    background-image: url(../img/programador2.jpg);
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    background-size: cover;
+    background-position: center center;
+}
+.texto-nosotros{
+    grid-row: 2/3;
+    background-color: var(--blanco);
+    padding: 2.5rem;
+}
+.texto-nosotros h3{
+    font-size: 3rem;
+    color: var(--azulClaro);
+    text-align: center;
+}
+.texto-nosotros p{
+    font-size: 1.8rem;
+    text-align: center;
+}
+.boton{
+    border: 2px solid var(--azulClaro);
+    color: var(--azulClaro);
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2.5rem;
+    transition: background-color .3s ease-in-out;
+}
+.boton:hover{
+    background-color: var(--azulClaro);
+    color: #fff;
+}
+
+@media (min-width:768px){
+    .nosotros h2{
+        font-size: 5rem;
+    }
+    .contenido-nosotros{
+        grid-template-columns: repeat(2,1fr);
+        background-attachment: fixed;
+    }
+    .texto-nosotros{
+        padding: 5rem;
+    }
+    .boton{
+        display: inline-block;
+        font-size: 1.8rem;
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+    .texto-nosotros p{
+        text-align: left;
+    }
+}
+
+
+/*Seccion servicios*/
+.servicios{
+    padding-top: 5rem;
+}
+.servicios h2{
+    font-size: 5rem;
+    text-align: center;
+    color: var(--azulClaro);
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio i{
+    background-color: var(--azulClaro);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 3rem;
+    box-shadow: 10px 10px 16px -6px rgba(0,0,0,0.45);
+    transition: all .3s ease-in-out;
+}
+.servicio h3{
+    font-size: 2.3rem;
+    color: var(--azulOscuro);
+}
+.servicio p{
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+@media (min-width:768px){
+    .contenido-servicios{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 4rem;
+    }
+    .servicio p{
+        text-align: left;
+    }
+    .servicio:hover i{
+        cursor: pointer;
+        background-color: #fff;
+        color: var(--azulClaro);
+    }
+}
+
+/*seccion contacto*/
+.contacto{
+    padding-top: 5rem;
+}
+.contacto h2{
+    text-align: center;
+    color: var(--azulClaro);
+    font-size: 5rem;
+}
+.informacion-contacto{
+    background-image: url(../img/pc2.jpg);
+    background-size: cover;
+    height: auto;
+    background-repeat: no-repeat;
+    position: relative;
+    /*z-index: 1;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.informacion-contacto::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+.informacion-contacto h3{
+    color: #fff;
+    font-size: 4rem;
+}
+
+.informacion-contacto p{
+    font-size: 2rem;
+    color: #fff;
+}
+.formulario-contacto{
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--azulOscuro);
+}
+.input-contacto label{
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: block;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+.input-contacto input{
+    padding: 1.2rem 1rem;
+}
+.input-contacto input, .input-contacto textarea{
+    width: 100%;
+    outline: none;
+}
+.input-contacto textarea{
+    resize: none;
+}
+.input-contacto input[type="submit"]{
+    width: auto;
+    background-color: var(--azulClaro);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+.input-contacto input[type="submit"]:hover{
+    background-color: var(--blanco);
+    color: var(--azulClaro);
+}
+
+
+@media (min-width:768px){
+.contenido-contacto{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.informacion-contacto h3{
+    text-align: center;
+}
+.informacion-contacto{
+    height: 100vh;
+}
+}
+
+
+/*estilos footer*/
+.footer .logo h2, .footer p{
+    text-align: center;
+}
+@media (min-width:768px){
+    .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+}
